@@ -1,0 +1,846 @@
+%=============================================================
+%中国科学院大学学位论文LaTex模板
+%制作者:YU Lijia 
+%联系方式:yu@lijiayu.net
+%更新时间:2013年1月10日
+%=============================================================
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%头文件
+%需要的package:
+%见下面的\usepackage{}内容
+%需要的字体:
+%黑体、宋体
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt,oneside,openany]{book}
+
+\usepackage{CJKutf8}
+\usepackage[usenames]{color}
+\usepackage{graphicx} 
+\usepackage[top=1in,bottom=1in,left=1.25in,right=1.25in]{geometry}
+\usepackage{dashrule}
+\usepackage{nomencl}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{tocbibind}%将目录、参考文献包含在目录中
+\usepackage{indentfirst}
+\usepackage{cite} 
+\usepackage{amsmath}
+\usepackage{makeidx}
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,CJKbookmarks]{hyperref}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}} 
+\linespread{1.25}
+\titlecontents{chapter}[0em]{\bfseries}{\thecontentslabel\hspace{2em}}{}{\hfill\contentspage}
+\newcommand{\LIU}{\fontsize{7.53}{9.03}\selectfont}%六号字  7.5bp
+\newcommand{\XLIU}{\fontsize{6.52}{7.83}\selectfont}%小六号		6.5bp
+\newcommand{\XWU}{\footnotesize{9.03}{10.84}\selectfont}%小五号 9bp
+\newcommand{\WU}{\fontsize{10.54}{12.65}\selectfont}%%五号字 10.5bp
+\newcommand{\XSIH}{\fontsize{12.05}{14.46}\selectfont}% 小四 12bp
+\newcommand{\SIH}{\fontsize{14.05}{16.86}\selectfont}%四号字   14bp
+\newcommand{\XSAN}{\fontsize{15.06}{18.07}\selectfont}%小三号   15bp
+\newcommand{\SAN}{\fontsize{16.06}{19.27}\selectfont}%三号字   16bp
+\newcommand{\XER}{\fontsize{18.07}{21.68}\selectfont}%小二号   18bp
+\newcommand{\ER}{\fontsize{22.08}{26.50}\selectfont}%二号字   22bp
+\newcommand{\XYI}{\fontsize{24.09}{28.91}\selectfont}%小一号   24bp
+\newcommand{\YI}{\fontsize{26.10}{31.32}\selectfont}%一号字   26bp
+\newcommand{\XCHU}{\fontsize{36.14}{43.36}\selectfont}%小初号   36bp
+\newcommand{\CHU}{\fontsize{42.16}{50.59}\selectfont}%初号字   42bp
+
+\titleformat{\chapter}{\XYI\CJKfamily{hei}}{\thechapter}{1em}{}
+\titleformat{\section}{\XER\CJKfamily{hei}}{\thesection}{1em}{}
+\renewcommand\chaptername{}
+\renewcommand\thechapter{\arabic{chapter}\chaptername}
+\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\renewcommand\contentsname{目录}
+\renewcommand\listfigurename{插图目录}
+\renewcommand\listtablename{表格目录}
+\renewcommand\indexname{索引}
+\renewcommand\figurename{图}
+\renewcommand\tablename{表}
+\renewcommand\partname{部分}
+\renewcommand\appendixname{附录}
+\renewcommand{\bibname}{参考文献}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%关于hyperref生成书签乱码的问题，没法解决，故不生成书签，以下为几种解决方式，但都不起效
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[pdfstartview=FitH,unicode,dvipdfm,
+%            CJKbookmarks=true,
+%            bookmarksnumbered=true,
+%            bookmarksopen=true,
+%            colorlinks,linkcolor=black,anchorcolor=black,citecolor=black
+%            ]{hyperref} 
+%\usepackage[CJKbookmarks,bookmarks=true,unicode,dvipdfm]{hyperref}  
+%\hypersetup{colorlinks, linkcolor=green, citecolor=green, urlcolor=blue,%   %hyperref的这一大堆设置%是保证中文可以复制
+%plainpages=true, bookmarksopen=false,%
+%pdfhighlight=/P, %/I(inverse) /N(no effect) /O(outline) /P(inset)
+%pdfstartview=FitH, %FitBH, FitB
+%pdfview=FitH,
+%pdfpagemode=UseOutlines, %None, FullScreen, UseThumbs
+%}
+%\AtBeginDvi{\special{pdf:tounicode UTF8-UCS2}}
+%\renewcommand{\numberline}[1]{表~#1~}
+%\renewcommand{\numberline}[1]{图~#1~}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%封面
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document} 
+\begin{CJK}{UTF8}{hei} 
+
+\pagestyle{plain}
+\thispagestyle{empty}
+
+	\begin{center}
+	\hfill{\LARGE 密级：\underline{\hbox to 100pt{\hfill \hfill}}}
+	\\[8ex]
+	\includegraphics[scale=0.105]{fig/2.png}\\[5em]
+	{\YI 硕士（博士）学位论文}\\[5em]
+	\bf\CJKfamily{gbsn}
+	{\SAN\underline{写题目的地方}}\\[5em]
+		\begin{tabular}{cc}
+			\SIH作者姓名： &\underline{\hbox to 250pt{\SIH\hfill写名字\hfill}}\\[1em]
+		  	\SIH指导教师： &	\underline{\hbox to 250pt{\SIH\hfill写导师名字职称\hfill}}\\[1em]
+		  			      &\underline{\hbox to 250pt{\SIH\hfill写导师单位\hfill}}\\[1em]
+			\SIH学位类别： &	\underline{\hbox to 250pt{\SIH\hfill写学位类别：理学硕士(博士)\hfill}}\\[1em]
+			\SIH学科专业： &	\underline{\hbox to 250pt{\SIH\hfill写学科\hfill}}\\[1em]
+			\SIH培养单位： &	\underline{\hbox to 250pt{\SIH\hfill写培养单位\hfill}}\\
+		\end{tabular} 
+	\\[20ex]  
+	{\SIH二零一三年七月}
+	\end{center}
+
+\clearpage
+\newpage
+\thispagestyle{empty}
+
+	\begin{center}
+	\vspace*{20pt}
+	{\bf\SAN\underline{XXXXXXXXXXXXXXXX}\\[1em]\underline{XXXXXXXXXXXXXXXXXXXXXXX}}\\[9em]
+	\bf\SAN
+	By \\
+	YU Lijia\\[6em]
+	\bf\SIH
+	A Dissertation Submitted to \\
+	University of Chinese Academy of Sciences\\
+	In partial fulfillment of the requirement \\
+	For the degree of \\
+	XXXXXXX of Science\\[5em]
+	Institute\\ Chinese Academy of Sciences\\[2em]
+	{\SIH July,2013}
+	\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%版权、知识产权原创保证页
+%不要随便修改，以免格式错乱
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\thispagestyle{empty}
+
+\begin{center}
+
+\CJKfamily{hei}
+\SAN  关于学位论文使用权声明
+\end{center}
+\vspace{10pt}
+\setlength{\parindent}{2em}
+
+\CJKfamily{gbsn}\SIH 
+任何收存和保管本论文各种版本的单位和个人，未经著作权人授权，不得将本论文转借他人并复印、抄录、拍照、或以任何方式传播。否则，引起有碍著作权人著作权益之问题，将可能承担法律责任。\\
+\vspace{5pt}
+\noindent\hdashrule[0.5ex]{14.7cm}{1.3pt}{1.3pt 1.3pt}
+\vspace{15pt}
+
+\begin{center}
+\CJKfamily{hei}
+\SAN  关于论文使用授权的说明
+\end{center}
+\vspace{10pt}
+
+\CJKfamily{gbsn}\SIH 
+本人完全了解中国科学院某某某研究所有关保存、使用学位论文的规定，即：中国科学院某某某研究所有权保留学位论文的副本，允许该论文被查阅；中国科学院某某某研究所可以公布该论文的全部或部分内容，可以采用影印、缩印或其他复制手段保存该论文。
+
+（涉密的学位论文在解密后应遵守此规定）
+
+\vspace{20pt}
+\WU{签~~名：\hbox to 85pt{}~导师签名：\hbox to 85pt{}~日~~期：\hbox to 85pt{}}
+\vspace{5pt}\\
+\noindent\hdashrule[0.5ex]{14.7cm}{1.3pt}{1.3pt 1.3pt}
+\vspace{15pt}
+
+\begin{center}
+\CJKfamily{hei}
+\SAN  关于学位论文原创性声明
+\end{center}
+\vspace{10pt}
+
+\CJKfamily{gbsn}\SIH 
+本人郑重声明：所呈交的学位论文是本人在导师指导下，独立进行研究工作所取得的成果。尽我所知，除文中已经注明引用的内容外，本学位论文的研究成果不包含任何他人享有著作权的内容。对本论文所涉及的研究工作做出贡献的其他个人和集体，均已在文中以明确方式标明。
+\vspace{20pt}
+
+\WU{签~~名：\hbox to 85pt{}~导师签名：\hbox to 85pt{}~日~~期：\hbox to 85pt{}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%摘要
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\thispagestyle{empty}
+
+\frontmatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%中文摘要
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\CJKfamily{hei}
+	\chapter*{\centering 摘  要\\}
+	\addcontentsline{toc}{chapter}{摘要}
+	\CJKfamily{gbsn}
+	\begin{quotation}
+	摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要
+
+	\noindent{\CJKfamily{hei} 关键词：\CJKfamily{gbsn}宋体，宋体，宋体} 
+	\end{quotation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%英文摘要
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\chapter*{\centering Abstract\\}
+	\addcontentsline{toc}{chapter}{Abstract}
+	\begin{quotation}
+
+	English\LaTeX
+
+	\bf keywords: haha,haha,haha
+	\end{quotation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%目录
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%可选项目：插图目录、表格目录
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\numberline}[1]{图~#1~}
+%\listoffigures
+%\renewcommand{\numberline}[1]{表~#1~}
+%\listoftables
+\newpage 
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%正文开始
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\CJKfamily{gbsn}
+\chapter[绪论]{绪论}
+
+\TeX/\LaTeX是一种专业的科技文献排版语言，使用它写文档具有如下优势：
+\begin{enumerate}
+\item 将内容与格式分离，使人专注于内容书写；
+\item 编程化控制排版格式，工作灵活性和精确度高；
+\item 跨平台，兼容性和稳定性非常好。
+\end{enumerate}
+
+\section{用前必读}
+
+并不是所有老师都知道\TeX，并不是所有老师都接受PDF版本的学位论文原始手稿。
+
+\chapter{关于本模板}
+本模版基于中科院电工所Tao Wang所写的CASThesis LyX模版\footnote{\href{http://code.google.com/p/cas-lyx-template/}{http://code.google.com/p/cas-lyx-template/}}，经简化改造成，没有用到自制类.cls文件，是一个代码比较”脏“但是直观可见的模板,\href{http://github.com/yulijia/LaTeX_UCASthesis}{下载地址}。
+
+版本号：1.0 beta%
+
+作者：YU Lijia%
+\footnote{作者联系方式：yu@lijiayu.net%
+}
+
+本模版尚不完善欢迎提出修改意见或指出错误。
+
+尚存在的问题，复制出的英文会乱码，无法生成中文索引。
+
+\begin{center}
+\textbf{声明}
+\par\end{center}
+\begin{enumerate}
+\item 遵循协议:CC BY-SA 3.0协议
+\item 本模板和示例文档根据2012年1月7日中国科学院研究生院颁发的《中国科学院研究生院研究生学位论文撰写规定》和《学位论文编写规则》（GB/T7713.1-2006）编写而成。
+\end{enumerate}
+
+\section{测试所用软件环境}
+
+Fedora16 + \TeX Live 2011 +  Gummi
+
+排版命令：PdfTeX
+
+编译步骤：Tex 到 PDF
+
+模板理论上平台无关。
+
+
+\chapter{中国科学院研究生院研究生学位论文撰写规定 }
+
+\begin{center}
+\textbf{（2012年1月7日研究生院第三届学位评定委员会第七次会议通过）}
+\par\end{center}
+
+学位论文是研究生科研工作成果的集中体现，是评判学位申请者学术水平、授予其学位的主要依据，是科研领域重要的文献资料。根据《科学技术报告、学位论文和学术论文的编写格式》（GB/T
+7713-1987）、《学位论文编写规则》（GB/T 7713.1-2006）\textbf{}%
+\footnote{主要的改动在于封面和摘要关键词的位置，但参考文献竟然还是没有使用最新的国标。学位论文的国标竟然同时使用两个……要知道新国标实行后，旧国标是自动废止的。%
+}和《文后参考文献著录规则》（GB7714—87）等国家有关标准，结合研究生院的实际情况，特制订本规定。
+
+
+\section{学位论文的一般要求}
+
+学位论文必须是一篇（或由一组论文组成的一篇）系统的、完整的学术论文。学位论文应是学位申请者本人在导师的指导下独立完成的研究成果，除论文中已经注明引用的内容外，不得抄袭和剽窃他人成果。对学位论文研究做出重要贡献的个人和集体，均应在文中以明确方式标明。学位论文的学术观点必须明确，且立论正确，推理严谨，数据可靠，层次分明，文字正确、语言通畅，表述清晰，图、表、公式、单位等符合规范要求。
+
+
+\section{学位论文的水平要求}
+
+硕士学位论文要选择在基础学科或应用学科中有价值的课题，对所研究的课题有新的见解，并能表明作者在本门学科上掌握了坚实的基础理论和系统的专门知识，具有从事科学研究工作或独立担负专门技术工作的能力。
+
+博士学位论文要选择在国际上属于学科前沿的课题或对国家经济建设和社会发展有重要意义的课题，要突出论文在科学和专门技术上的创新性和先进性，并能表明作者在本门学科领域掌握了坚实宽广的基础理论和系统深入的专门知识，具有独立从事科学研究工作的能力。
+
+
+\section{撰写学位论文的语言及文字}
+
+除外国来华留学生及外语专业研究生外，研究生学位论文一般应采用国家正式公布实施的简化汉字撰写；应采用国家法定的计量单位。学位论文中采用的术语、符号、代号在全文中必须统一，并符合规范化的要求。
+
+外国来华留学生可用中文或英文撰写学位论文，但须采用中文封面，且应有详细的中文摘要。外语专业的学位论文等应用所学专业相应的语言撰写，摘要应使用中文和所学专业相应的语言对照撰写。
+
+为了便于国际合作与交流，学位论文亦可有英文或其它文字的副本。
+
+
+\section{学位论文的主要组成部分}
+
+学位论文一般由以下几个部分组成：中文封面、英文封面、致谢、中文摘要、英文摘要（Abstract）、目录、正文、参考文献、附录、作者简历及攻读学位期间发表的学术论文与研究成果。
+
+（一）学位论文题目应当简明扼要地概括和反映出论文的核心内容，一般不宜超过25个汉字（符），英文题目一般不应超过150个字母，必要时可加副标题。
+
+（二）论文摘要包括中文摘要和英文摘要（Abstract）两部分。论文摘要应概括地反映出本论文的主要内容，主要说明本论文的研究目的、内容、方法、成果和结论。要突出本论文的创造性成果或新见解，不宜使用公式、图表，不标注引用文献。英文摘要（Abstract）应与中文摘要内容相对应。
+
+摘要最后另起一行，注明本文的关键词（3-5个），关键词是为了文献标引工作从论文中选取出来，用以表示全文主题内容信息的单词或术语。
+
+（三）正文是学位论文的主体，包括引言（或绪论）、论文主体及结论等部分。
+
+1.引言（或绪论）应包括选题的背景和意义，国内外相关研究成果述评，本论文所要解决的问题、所运用的主要理论和方法、基本思路和论文结构等。引言应独立成章，用足够的文字叙述，不与摘要雷同。
+
+2.论文主体由于涉及不同的学科，在选题、研究方法、结果表达方式等有很大的差异，不作统一的规定。但必须严格遵循本学科国际通行的学术规范，言之成理，论据可靠，实事求是，合乎逻辑，层次分明，简练可读。
+
+3.结论是对整个论文主要成果的总结，应明确、精炼、完整、准确。结论应明确指出本研究的创新点，对论文的学术价值和应用价值等加以预测和评价，说明研究中尚难解决的问题，并提出今后进一步在本研究方向进行研究工作的设想或建议。应严格区分本人研究成果与他人科研成果的界限。
+
+（四）参考文献应本着严谨求实的科学态度，凡学位论文中有引用或参考、借用他人成果之处，均应按不同学科论文的引用规范，列于文末（通篇正文之后）。需正确区分直接引用和转引并明确加以标注。
+
+
+\section{学位论文印刷及装订要求}
+
+学位论文封面采用研究生院统一规定的学位论文封面格式（模板见附件），封面用纸一般为150克（需保证论文封面印刷质量，字迹清晰、不脱落），博士学位论文封面颜色为红色，硕士学位论文封面颜色为蓝色。
+
+
+\section{学位论文的提交、保存与使用}
+
+学位申请者需按规定向研究生院提交学位论文的印刷本和电子版，印刷本和电子版在内容与形式上应完全一致；研究生院有权保存学位论文的印刷本和电子版，并提供目录检索与阅览服务，可以采用影印、缩印、数字化或其它复制手段保存学位论文；培养单位、研究生院有义务保护论文作者的知识产权。涉密学位论文在解密后，须按此规定执行。
+
+\textbf{本规定自印发之日起施行，解释权属于研究生院学位评定委员会，由研究生院学位办公室负责解释。} 
+
+
+\chapter{研究生学位论文写作规范（讨论稿）}
+
+
+\section{学位论文基本结构}
+
+学位论文一般由以下几部分组成，依次为：1．中文封面；2．英文封面；3．致谢；4．中文摘要；5．Abstract；6．目录；7．正文；8．参考文献；9．附录；10．作者简历及攻读学位期间发表的学术论文与研究成果。 
+
+
+\section{学位论文格式要求}
+
+学位论文各部分从新的一页开始，具体要求如下：
+
+
+\subsection{封面}
+
+
+\subsubsection{密级}
+
+仅限于涉密学位论文填写，应根据《中国科学院研究生院学位论文保密管理规定》，按照审定的密级及保密年限，在论文首页右上角使用黑体三号明确标注（如系公开型论文则可不注明密级），标注方法如下：
+
+内部 年（空白处必须填写保密年限，一般不超过2年）
+
+
+
+非涉密（公开）论文不需标注密级。 
+
+
+\subsubsection{论文题目}
+
+论文题目应当简明扼要地概括和反映出论文的核心内容，一般不宜超过25个字，必要时可加副标题。
+
+论文题目通常由名词性短语构成，应尽量避免使用不常用缩略词、首字母缩写字、字符、代号和公式等。 
+
+
+\subsubsection{作者姓名}
+
+英文姓名填写姓名全拼。
+
+
+\subsubsection{指导教师}
+
+指导教师必须是被批准上岗的指导教师。一般情况下，只填写一名指导教师，经正式批准、备案的副指导教师或联合指导教师，可增1名指导教师。
+
+指导教师信息包括：姓名、专业技术职务、工作单位。 
+
+
+\subsubsection{学位类别}
+
+学术型学位申请者填写申请学位所属的学科门类，如：哲学、经济学、法学、教育学、文学、理学、工学、农学、医学、管理学等。专业学位申请者填写申请学位所属的专业学位类别，如工商管理硕士、应用统计硕士、应用心理硕士、农业推广硕士、工程管理硕士、翻译硕士、药学硕士、工程硕士等。
+
+
+\subsubsection{学科专业}
+
+必须按国务院学位委员会批准的学科、专业目录，规范填写。
+
+
+\subsubsection{培养单位}
+
+填写培养单位或院系全称。
+
+
+\subsubsection{日期}
+
+填写论文提交日期，用汉字书写，不用阿拉伯数字。
+
+
+\subsection{致谢}
+
+放置在摘要前，对导师和给予指导或协助完成学位论文工作的组织和个人，对课题给予资助者表示感谢。语言要诚恳、恰当、简短。
+
+
+\subsection{论文摘要}
+
+论文摘要包括中文摘要和英文摘要两部份。摘要中应尽量避免采用图、表、化学结构式、非公知公用的符号和术语。
+
+硕士论文摘要一般应在800字左右，博士论文摘要一般应在1000字左右。英文摘要内容要与中文摘要内容一致。
+
+无论中英文摘要都必须在摘要页的最下方另起一行，注明本文的关键词（3～5个），词与词间用逗号隔开。关键词应体现论文特色，具有语义性，在论文中有明确的出处。并应尽量采用《汉语主题词表》或各专业主题词表提供的规范词。 
+
+
+\subsection{目录}
+
+目录是论文的提纲，应将文内的章节标题依次排列。
+
+
+\subsection{图和附表清单}
+
+论文中如图表较多，可以分别列出清单置于目次页之后。图的清单应有序号、图题和页码。表的清单应有序号、表题和页码。
+
+
+\subsection{符号说明}
+
+如果论文中使用了大量的物理量符号、标志、缩略词、专门计量单位、自定义名词和术语等，应编写成注释说明汇集表，置于图表清单之后。若上述符号等使用数量不多，可以不设此部分，但必须在论文中出现时加以说明。新的专业术语、缩略词在首次出现时加以注释。外文专业术语、缩略词，在首次出现的译文后用圆括号注明原词语全称。
+
+
+\subsection{正文}
+
+此部分是论文的主体，从引言开始，以结论或讨论结束。
+
+
+\subsubsection{章节标号}
+
+论文正文分章节撰写，每章应另起一页。
+
+论文标题分层设序。层次以少为宜，根据实际需要选择。各层次标题一律用阿拉伯数字连续编号；不同层次的数字之间用小圆点“．”相隔，末位数字后面不加点号，如“1”，“1.1”，“1.1.1”等；各层次的序号均左起顶格排，编号与标题之间空一个汉字符。正文另起行，前空2个字起排，回行时顶格排。 
+
+
+\subsubsection{图、表及公式}
+
+图：图应具有“自明性”。图包括曲线图、构造图、示意图、框图、流程图、记录图、地图、照片等，应鲜明清晰。照片上应有表示目的物尺寸的标度。图的编号一律用阿拉伯数字分章依序连续编码，如：图
+l.1(第1章第一个图)、图2.2(第二章第二个图)等。图题应置于图的编号之后，图的编号和图题应置于图下方。若图中有附注，写在图的下方。
+
+表：表应具有“自明性”。表的编号一律用阿拉伯数字分章依序连续编码，如：表 3.2(第三章第二个表)等。表的编号和表题应置于表上方。表题应简单明了。表的编排，一般是内容和测试项目由左至右横读，数据依序竖读。
+
+表的编排建议采用国际通行的三线表。如某个表需要转页接排，在随后的各页上应重复表的编号。编号后跟表题（可省略）和“（续）”，置于表上方。续表均应重复表头。若表中有附注，写在表的下方。
+
+公式：论文中的公式应另行起，并缩格书写，与周围文字留足够的空间区分开。公式的编号一律用阿拉伯数字分章依序连续编码，并将编号置于括号内。公式的编号右端对齐，公式与编号之间可用“…”连接。
+
+较长的公式需要转行时，应尽可能在“＝”处回行，或者在“+”、“－”“”、“/”等记号处回行。公式中分数线的横线，其长度应等于或略大于分子和分母中较长的一方。如正文中书写分数，应尽量将其高度降低为一行，如将分数线书写为“/”，将根号改为负指数。 
+
+
+\subsubsection{引文标注}
+
+论文中引用的文献的标注方法遵照GB/T 7714－2005，可采用顺序编码制，也可采用著者－出版年制，但全文必须统一。如：
+
+顺序编码制：德国学者N.克罗斯研究了瑞士巴塞尔市附近侏罗山中老第三纪断裂对第三系摺皱的控制{[}25{]}；之后，他又描述了西里西亚第3条大型的近南北向构造带，并提出地槽是在不均一的块体的基底上发展的思想{[}26{]}。
+
+著者－出版年制：结构分析的子结构法最早是为解决飞机结构这类大型和复杂结构的有限元分析问题而发展起来的（Przemienicki,1968）。 
+
+
+\subsubsection{注释}
+
+
+
+
+\subsubsection{量和单位}
+
+文中所用单位按照国家标准《量和单位》（GB3100-3102-93）执行，单位名称和符号的书写方式，可以采用国际通用符号，也可以用中文名称，但全文应统一，不得两种混用。
+
+
+\subsubsection{结论}
+
+论文的结论是最终的、总体的结论，不是正文中各段的小结的简单重复。结论应包括论文的核心观点，交代研究工作的局限，提出未来工作的意见或建议。结论应该准确、完整、明确、精练。
+
+如果不能导出一定的结论，也可以没有结论而进行必要的讨论。 
+
+
+\subsection{参考文献}
+
+参考文献表是文中引用的有具体文字来源的文献集合, 其著录项目和著录格式遵照国家标准《文后参考文献著录规则》（GB/T 7714－2005）的规定执行。
+
+参考文献表应置于正文后，并另起页。所有被引用文献均要列入参考文献表中。引文采用顺序编码标注时，参考文献表按编码顺序排列，引文采用著作－出版年制标注时，参考文献表应按著者字顺和出版年排序。 
+
+
+\subsubsection{各种主要参考文献著录表的格式}
+
+专（译）著：{[}序号{]} 作者.题名：其他题名信息［文献类型标志］.其他责任者.版本项.出版地：出版者，出版年：起止页码.
+
+连续出版物：{[}序号{]}作者.题名：其他提名信息［文献类型标志］.年，卷（期）：起止页码.
+
+论文集：{[}序号{]} 作者.文题［文献类型标志］.见（in）：编者，编（eds）.文集名：其他题名信息.版本项.出版地：出版者，出版年.起止页码.
+
+学位论文：{[}序号{]} 作者.题名{[}文献类型标志{]}.授予单位所在地：授予单位，授予年份.起止页码. 专利文献：{[}序号{]}
+
+申请者.专利名.国名，专利号［文献类型标志］.公告或公开日期.
+
+技术标准：{[}序号{]} 发布单位.技术标准代号.技术标准名称［文献类型标志］.出版地：出版者，出版日期
+
+电子文献：{[}序号{]} 作者.题名：其他题名信息［文献类型标志/文献载体标志］.出版地：出版者，出版年.［引用日期］.获取和访问路径. 
+
+
+\subsubsection{文献类型、电子文献载体类型及其标志代码}
+
+文献类型标志：普通图书 M, 会议录 C, 汇编 G, 报纸 N, 期刊 J, 学位论文 D, 报告R，标准 S，专利 P，数据库
+DB，计算机程序 CP，电子公告 EB。
+
+电子文献载体类型标志：磁带 MT，磁盘 DK，光盘 CD，联机网络 OL。 
+
+
+\subsection{附录}
+
+附录作为主体部分的补充，并不是必须的。下列内容可以作为附录编于论文后：
+
+为了整篇论文材料的完整，但编入正文又有损于编排的条理性和逻辑性，这一材料包括比正文更为详尽的信息、研究方法和技术更深入的叙述，对了解正文内容有用的补充信息等； 
+
+由于篇幅过大或取材于复制品而不便于编入正文的材料；
+
+不便于编入正文的罕见珍贵资料；
+
+对一般读者并非必要阅读，但对本专业同行有参考价值的资料；
+
+某些重要的原始数据、数学推导、结构图、统计表、计算机打印输出件等。
+
+附录的格式与正文相同。附录按正体大写字母编号，即附录A，附录B，……。只有一个附录时，也要编号，即附录A。每个附录应有标题。附录中图、表、公式的编号，应与正文编号区分，即在阿拉伯数码前冠以附录的编号，如图A.1，图A.2；表A.1，表A.2；公式A.1，公式A.2等。附录编号、标题各占一行，置于附录条文之上居中位置。
+
+每一个附录通常应另起页，如果有多个较短的附录，也可接排。 
+
+
+\subsection{作者简历及在学期间发表的学术论文与研究成果}
+
+包括教育经历、工作经历、攻读学位期间发表的论文与研究成果等。
+
+作者简历包括姓名、性别、民族、出生年月、籍贯、获得学位学校及时间等。
+
+在学期间发表的学术论文按照参考文献格式书写。
+
+研究成果可以是参加的研究项目、申请的专利或获奖情况等。 
+
+
+\section{学位论文排版、印刷及装订要求}
+
+
+\subsection{封面}
+
+学位论文封面采用全院统一格式，封面用纸为150克花纹纸，博士学位论文封面颜色为红色，硕士学位论文封面颜色为蓝色。具体格式参见附录A——格式范例，使用时可直接套用附件（电子版）格式，将相应内容换成自己的即可。
+
+论文中文题目用宋体三号，加粗。其他信息用四号宋体加粗打印在封面合适的位置上。题目严格按照封面模板格式控制各部分的字体、字号。
+
+英文论文题目为中文论文题目相对应的英文翻译，使用Times New Roman字体，加粗，居中书写在中文论文题目下面。 
+
+
+\subsection{书脊}
+
+论文书脊按照国家标准（GB/T 11668-1989）《图书和其他出版物的书脊规则》，采用纵排，上方写论文题目，中间写作者姓名，下方写中国科学院研究生院，距上下边界均为3cm左右。书脊用宋体小四号，加粗，行距14磅，段前段后0磅。
+
+
+\subsection{目录}
+
+目录标题采用章标题的格式，目录的内容采用宋体小四号，目录各章节标题行前空6磅，后空0磅，两端对齐，页码右对齐。
+
+
+\subsection{标题}
+
+一级标题用黑体三号，加粗；单倍行距，段前空24磅，段后空18磅。
+
+二级标题用黑体四号，加粗；单倍行距，段前12磅，段后6磅。
+
+三级标题用黑体小四号，加粗；单倍行距，段前12磅，段后6磅。
+
+论文的“致谢，摘要，目录，参考文献，附录，作者简历及在学期间的发表的学术论文与研究成果”等部分的标题居中书写，其中“致谢”，“摘要”，“目录”及“附录”，二字间均空一个字的间隙；“Abstract”部分的标题用Times
+New Roman体三号，加粗。 
+
+
+\subsection{页眉与页码}
+
+学位论文的页眉从致谢开始。页眉，奇数页上注明每一章名称，偶数页上注明论文题目。
+
+页码从正文开始按阿拉伯数字（1，2，3……）编连续码，此前部分（中英文摘要、目录等）用大写罗马数字（I，II,III…）单独编连续码，页码位于页面底端居中位置。采用Times
+New Roman体五号。数字居中书写，页码数字两侧不要加“－”等符号。
+
+页眉用宋体五号（Abstract部分用Times New Roman体）；页码用Times New Roman体五号。
+
+论文所用中文字体标题要求为黑体，正文部分为宋体，外文、数字为Times New Roman体。 
+
+
+\subsection{论文段落文字部分}
+
+汉字用宋体小四号，英文用Times New Roman体。段落首行左缩进2个汉字符。行距为固定值20磅，段前空0磅，段后空0磅。用宋体小四号。
+
+图序与图名：图序与图名置于图的下方，用宋体五号居中，单倍行距，段前6磅，段后12磅，图序与图名之间空一个字的间隙。图注用宋体五号。
+
+表序与表名：表序与表名置于表的上方，用宋体五号居中，单倍行距，段前6磅，段后6磅，表序与表名文字之间空一个字的间隙。表中的文字一般应居中书写，不宜左右居中书写的，可采取两端对齐的方式书写。表注及表中的文字用宋体五号。
+
+段落中有数学表达式时，可根据表达需要设置该段的行距。表达式居中排，序号加圆括号，宋体五号，右顶格排。 
+
+
+\subsection{注释}
+
+注释用宋体小五号，单倍行距，段前段后均空0磅。
+
+
+\subsection{参考文献}
+
+参考文献注录部分汉字用宋体五号，英文用Times New Roman体。行距20磅，段前段后0磅。
+
+
+\subsection{版面、印刷及装订要求}
+
+
+
+论文必须用线装或热胶装订，不能使用钉子装订。 
+
+\backmatter
+
+\bibliographystyle{GBT7714-2005NLang-UTF8}
+\bibliography{ckwx}
+
+
+\appendix
+
+\chapter{中科院学位论文撰写规范（旧版）}
+
+学位论文是为申请学位而撰写的学术论文，是评判学位申请者学术水平的主要依据，也是学位申请者获得学位的必要条件之一。为规范和统一我院研究生学位论文的写作，根据《中华人民共和国学位条例暂行实施办法》的有关规定，提出以下要求：
+
+
+\section{基本要求}
+
+学位论文必须是一篇（或由一组论文组成的一篇）系统的、完整的学术论文。学位论文应是学位申请者本人在导师的指导下独立完成的研究成果，不得抄袭和剽窃他人成果。学位论文的学术观点必须明确，且逻辑严谨，文字通畅。
+
+
+\subsection{硕士学位论文}
+
+硕士学位论文要注意在基础学科或应用学科中选择有价值的课题，对所研究的课题有新的见解，并能表明作者在本门学科上掌握了坚实的基础理论和系统的专门知识，具有从事科学研究工作或独立担负专门技术工作的能力。
+
+硕士学位论文工作一般在硕士生完成培养计划所规定的课程学习后开始，应包括文献阅读、开题报告、拟定并实施工作计划、科研调查、实验研究、理论分析和文字总结等工作环节。硕士学位论文必须有一定的工作量。在论文题目确定后，用于论文工作的时间一般不得少于一年半。
+
+
+\subsection{博士学位论文}
+
+博士学位论文要选择在国际上属于学科前沿的课题或对国家经济建设和社会发展有重要意义的课题，要突出论文在科学和专门技术上的创新性和先进性，并能表明作者在本门学科上掌握了坚实宽广的基础理论和系统深入的专门知识，具有独立从事科学研究工作的能力。
+
+博士学位论文工作是培养博士学位研究生最重要的环节，其工作时间一般不应少于两年。博士研究生入学后，要在导师指导下确定科研方向，收集资料，阅读文献，进行调查研究，选择研究课题。一般在第二学期，最迟在第三学期通过开题报告并制定论文工作计划，之后根据论文工作计划分阶段报告科研和论文工作进展情况。
+
+
+\section{学位论文的组成部分和排列顺序}
+
+学位论文一般由以下几个部分组成：封面、论文摘要、论文目录、正文、参考文献、发表文章目录、致谢等。
+
+
+\subsection{封面}
+
+根据原国家标准局《科学技术报告、学位论文和学术论文的编写格式》（国家标准GB7713-87）的封面要求，特规定中国科学院研究生院研究生学位论文的封面格式（见样张1和样张2），并提出以下具体要求：
+\begin{description}
+\item [{分类号}] 必须在封面左上角注明分类号。一般应注明《中国图书资料分类法》的类号，同时注明《国际十进分类法UDC》的类号。
+\item [{编号}] 各培养单位自定。
+\item [{密级}] 论文必须按国家规定的保密条例在右上角注明密级（如系公开型论文则可不注明密级）。
+\item [{论文题目}] 学位论文题目应当简明扼要地概括和反映出论文的核心内容，一般不宜超过20个字，必要时可加副标。
+\item [{指导教师}] 指导教师必须是被批准上岗的指导教师。
+\item [{申请学位级别}] 填硕士学位或博士学位。
+\item [{学科、专业名称}] 按国家颁布的学科、专业目录中的名称填写。
+\item [{论文提交日期和论文答辩日期}] 按实际提交和答辩日期填写。
+\item [{培养单位}] 填写培养单位全称。
+\item [{学位授予单位}] 填写“中国科学院研究生院”。
+\end{description}
+
+\subsection{论文摘要}
+
+论文摘要应概括地反映出本论文的主要内容，主要说明本论文的研究目的、内容、方法、成果和结论。要突出本论文的创造性成果或新见解，不要与引言相混淆。
+
+中文摘要力求语言精炼准确，字数在500字左右。英文摘要内容要与中文摘要内容一致。并在英文题目下面第一行写研究生姓名。专业名称用括号括起后，置于姓名之后。研究生姓名下面的一行写导师姓名，格式为：Directed
+by......。无论中英文摘要都必须在摘要页的最下方另起一行，注明本文的关键词（3～5个）。
+
+
+\subsection{论文目录}
+
+论文目录是论文的提纲，也是论文各章节组成部分的小标题。
+
+
+\subsection{正文}
+
+正文是学位论文的主体和核心部分，不同学科专业和不同的选题可以有不同的写作方式。正文一般包括以下几个方面：
+
+1．引言
+
+引言是学位论文主体部分的开端，要求言简意赅，不要与摘要雷同或成为摘要的注解。除了说明研究目的、方法、结果等外，还应评述国内外研究现状和相关领域中已有的研究成果；介绍本项研究工作前提和任务，理论依据和实验基础，涉及范围和预期结果以及该论文在已有的基础上所解决的问题。
+
+2．各具体章节
+
+3．结论
+
+结论是学位论文最终和总体的结论，是整篇论文的归宿。应精炼、准确、完整。着重阐述作者研究的创造性成果及其在本研究领域中的意义，还可进一步提出需要讨论的问题和建议。
+
+
+\subsection{参考文献}
+
+学位论文的撰写应本着严谨求实的科学态度，凡有引用他人成果之处，均应按论文中所引用的顺序列于文末。参考文献的著录均应符合国家有关标准（按照GB7714-87《文后参考文献著录格式》执行%
+\footnote{该标准已经废止，本模板使用的是GB7714-2005。%
+}）。
+
+1．文献是期刊时，书写格式为：
+
+序号 作者. 文章题目. 期刊名, 年份(期数): 起止页码
+
+2．文献是图书时，书写格式为：
+
+序号 作者. 书名. 版次. 出版地: 出版单位，年份. 起止页码
+
+
+\subsection{发表文章目录}
+
+指学位申请者在学期间在各类正式刊物上发表或已被接受的学术论文。
+
+
+\subsection{致谢}
+
+表达作者对完成论文和学业提供帮助的老师、同学、领导、同事及亲属的感激之情。
+
+
+\section{学位论文的书写、装订要求}
+\begin{enumerate}
+\item 中国科学院研究生院研究生学位论文必须用中文书写，为了便于国际合作与交流，学位论文亦可有英文或其它文字的副本。
+
+\begin{enumerate}
+\item 论文“题目”：黑体小三号
+
+\begin{enumerate}
+\item 论文“章”：黑体四号
+
+\begin{enumerate}
+\item 论文“节”：黑体小四号
+\end{enumerate}
+\item 正文：宋体小四号
+\end{enumerate}
+\item 为美观方便起见，要有页眉，奇数页上注明每一章名称，偶数页上注明论文题目。
+\end{enumerate}
+\item 文中的图表、附注、参考文献、公式一律采用阿拉伯数字连续（或分章）编号。如图1，表1，附注：1，文献（1），公式（1）。图序及图名置于图的下方；表序及表名置于表的上方；论文中的公式编号用括弧括起来写在右边行末，其间不加虚线。
+\item 文中所用单位一律采用国务院发布的《中华人民共和国法定计量单位》，单位名称和符号的书写方式，应采用国际通用符号。
+\item 学位论文封面采用全院统一格式，封面用纸为150克花纹纸，博士学位论文封面颜色为红色，硕士学位论文封面颜色为蓝色。 
+\end{enumerate}
+\printindex{}
+
+
+\chapter*{作者简历及在学期间发表的学术论文与研究成果}
+
+\begin{center}
+姓名：YU Ljia 性别：  民族：  出生年月：  籍贯： 
+\par\end{center}
+
+\begin{center}
+1937-09--1949-12 XXXXXX系学士；
+\par\end{center}
+
+\begin{center}
+1950-09--1988-05 XXXXXX系硕士
+\par\end{center}
+
+\begin{center}
+获奖情况：
+\par\end{center}
+
+\begin{center}
+参加项目：
+\par\end{center}
+
+\begin{center}
+攻读博士学位期间发表的学术论文：
+\par\end{center}
+
+
+\chapter*{学位论文数据集}
+
+\begin{table}[tbph]
+\addtolength{\tabcolsep}{-2.7pt}\WU
+
+\centering{}%
+\begin{tabular}{|ccccccccccc|c|ccc|cc|c||c|c||c||c||c|c|cccc|cc|c|ccccc|cc|c|cccc|cc|ccc|c|ccc|cccc|cccc|}
+\hline 
+\multicolumn{12}{|c|}{关键词{*}} & \multicolumn{12}{c|}{密级{*}} & \multicolumn{12}{c|}{中图分类号{*}} & \multicolumn{12}{c|}{UDC} & \multicolumn{12}{c|}{论文资助}\tabularnewline
+\hline 
+\multicolumn{12}{|c|}{} & \multicolumn{12}{c|}{} & \multicolumn{12}{c|}{} & \multicolumn{12}{c|}{} & \multicolumn{12}{c|}{}\tabularnewline
+\hline 
+\multicolumn{15}{|c|}{学位授予单位名称{*}} & \multicolumn{15}{c|}{学位授予单位代码{*}} & \multicolumn{15}{c|}{学位类别{*}} & \multicolumn{15}{c|}{学位级别{*}}\tabularnewline
+\hline 
+\multicolumn{15}{|c|}{中国科学院大学 } & \multicolumn{15}{c|}{} & \multicolumn{15}{c|}{理学 } & \multicolumn{15}{c|}{硕士 }\tabularnewline
+\hline 
+\multicolumn{30}{|c|}{论文题名{*}} & \multicolumn{22}{c|}{并列题名{*}} & \multicolumn{8}{c|}{论文语种{*}}\tabularnewline
+\hline 
+\multicolumn{30}{|c|}{{\scriptsize 论文题名论文题名论文题名论文题名论文题名论文题名论}} & \multicolumn{22}{c|}{{\footnotesize 填写一个}} & \multicolumn{8}{c|}{中文 }\tabularnewline
+\hline 
+\multicolumn{15}{|c|}{作者姓名{*}} & \multicolumn{15}{c|}{YU Lijia} & \multicolumn{15}{c|}{学号{*}} & \multicolumn{15}{c|}{1234567890}\tabularnewline
+\hline 
+\multicolumn{24}{|c|}{培养单位名称{*} } & \multicolumn{12}{c|}{培养单位代码{*}} & \multicolumn{20}{c|}{培养单位地址} & \multicolumn{4}{c|}{邮编}\tabularnewline
+\hline 
+\multicolumn{24}{|c|}{{\footnotesize 中国科学院某某某研究所}} & \multicolumn{12}{c|}{} & \multicolumn{20}{c|}{{\scriptsize 北京市朝阳区}} & \multicolumn{4}{c|}{{\scriptsize 100190}}\tabularnewline
+\hline 
+\multicolumn{23}{|c|}{学科专业{*}} & \multicolumn{20}{c|}{研究方向{*}} & \multicolumn{6}{c|}{学制{*}} & \multicolumn{11}{c|}{学位授予年{*} }\tabularnewline
+\hline 
+\multicolumn{23}{|c|}{} & \multicolumn{20}{c|}{} & \multicolumn{6}{c|}{} & \multicolumn{11}{c|}{}\tabularnewline
+\hline 
+\multicolumn{15}{|c|}{论文提交日期{*}} & \multicolumn{45}{c|}{}\tabularnewline
+\hline 
+\multicolumn{11}{|c|}{导师姓名{*}} & \multicolumn{20}{c|}{} & \multicolumn{8}{c|}{职称{*}} & \multicolumn{21}{c|}{}\tabularnewline
+\hline 
+\multicolumn{17}{|c|}{评阅人} & \multicolumn{11}{c|}{{\footnotesize 答辩委员会主席{*}}} & \multicolumn{32}{c|}{答辩委员会成员}\tabularnewline
+\hline 
+\multicolumn{17}{|c|}{{\scriptsize 沃森、克里克}} & \multicolumn{11}{c|}{} & \multicolumn{32}{c|}{{\scriptsize 沃森、克里克}}\tabularnewline
+\hline 
+\multicolumn{15}{|l}{电子版论文提交格式} &  & \multicolumn{8}{c}{文本（\quad{}）} & \multicolumn{9}{c}{图像（\quad{}）} & \multicolumn{9}{c}{视频（\quad{}）} & \multicolumn{9}{c}{音频（\quad{}）} & \multicolumn{9}{c|}{多媒体（\quad{}）}\tabularnewline
+ &  &  &  &  &  &  &  &  &  & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} &  & \multicolumn{8}{c}{其它（\quad{}）} &  &  &  & \multicolumn{1}{c}{} &  & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} &  &  &  &  & \multicolumn{1}{c}{} &  & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} &  &  &  & \multicolumn{1}{c}{} &  & \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} &  &  &  & \multicolumn{1}{c}{} &  &  &  & \tabularnewline
+\multicolumn{60}{|l|}{推荐格式：application/msword；application/pdf }\tabularnewline
+\hline 
+\multicolumn{19}{|c|}{电子版论文出版(发布)者} & \multicolumn{19}{c|}{电子版论文出版(发布)地} & \multicolumn{22}{c|}{权限声明}\tabularnewline
+\hline 
+\multicolumn{19}{|c|}{} & \multicolumn{19}{c|}{} & \multicolumn{22}{c|}{}\tabularnewline
+\hline 
+\multicolumn{15}{|c|}{论文总页数{*}} & \multicolumn{45}{c|}{}\tabularnewline
+\hline 
+\multicolumn{60}{|l|}{注：共 33 项，其中带 {*} 为必填数据，为 22 项。}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+\bibliographystyle{plain} 
+\bibliography{test} 
+\clearpage 
+\end{CJK} 
+\end{document}
