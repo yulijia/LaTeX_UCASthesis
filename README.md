@@ -14,8 +14,6 @@ LaTeX template of graduate Thesis [University of Chinese Academy of Sciences]
 本模版尚不完善欢迎提出修改意见或指出错误。
 
 ##尚存在的问题
-- 复制出的英文会乱码（解决）2013.01.11
-- 无法生成中文索引（解决）2013.01.11
 - 字体字号间距等内容还需要调整
 
 ##最新更新
